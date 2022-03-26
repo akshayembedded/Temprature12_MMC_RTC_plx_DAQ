@@ -1,0 +1,2 @@
+
+float temprature(int Vo);
