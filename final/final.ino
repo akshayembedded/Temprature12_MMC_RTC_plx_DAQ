@@ -17,35 +17,37 @@ float T[12];
 //////////////////////////////////////////////////////////
 void setup() {
   Serial.begin(9600);
+  Serial.println("LABEL, Date, Time,Temprature T1,Temprature T2,Temprature T3,Temprature T4,Temprature T5,Temprature T6,Temprature T7,Temprature T8,Temprature T9,Temprature T10,Temprature T11,Temprature T12");
   pinMode(pinCS, OUTPUT);
   if (! DS1307_RTC.begin()) {
-    Serial.println("Couldn't find RTC");
-    Serial.flush();
+    //Serial.println("Couldn't find RTC");
+  //  Serial.flush();
    // abort();
   }
 // DS1307_RTC.adjust(DateTime(2022, 3, 26, 10, 50, 0));//January 21, 2014 at 3am
   // SD Card Initialization
   if (SD.begin())
   {
-    Serial.println("SD card is ready to use.");
+   // Serial.println("SD card is ready to use.");
   } else
   {
-    Serial.println("SD card initialization failed");
+  //  Serial.println("SD card initialization failed");
     return;
   }
  
-  sr5
+
 
 }  
 
 
 void loop() {
+  Serial.print("DATA,DATE,TIME,");
     if (SD.begin())
   {
-    Serial.println("SD card is ready to use.");
+   // Serial.println("SD card is ready to use.");
   } else
   {
-    Serial.println("SD card initialization failed");
+   // Serial.println("SD card initialization failed");
     return;
   }
   myFile = SD.open("test.txt", FILE_WRITE);
@@ -53,7 +55,7 @@ void loop() {
   float tempC = sensors.getTempCByIndex(0);
    if(tempC != DEVICE_DISCONNECTED_C) 
   {
-   // Serial.print(tempC);
+    Serial.print(tempC);
   }   
   else
   {
@@ -63,7 +65,7 @@ void loop() {
 float b = sensors.getTempCByIndex(1);
 if(b != DEVICE_DISCONNECTED_C) 
   {
-   // Serial.print(b);
+    Serial.print(b);
   } 
   else
   {
