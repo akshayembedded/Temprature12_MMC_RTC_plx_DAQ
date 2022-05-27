@@ -41,7 +41,7 @@ void setup() {
 
 
 void loop() {
-  Serial.print("DATA,DATE,TIME,");
+  Serial.print("DATE,TIME,");
     if (SD.begin())
   {
    // Serial.println("SD card is ready to use.");
@@ -55,24 +55,24 @@ void loop() {
   float tempC = sensors.getTempCByIndex(0);
    if(tempC != DEVICE_DISCONNECTED_C) 
   {
-    Serial.print(tempC);
+  //  Serial.print(tempC);
   }   
   else
   {
-    Serial.print("No data");
+ //   Serial.print("No data");
   }
-  Serial.print(" , ");
+ // Serial.print(" , ");
 float b = sensors.getTempCByIndex(1);
 if(b != DEVICE_DISCONNECTED_C) 
   {
-    Serial.print(b);
+  //  Serial.print(b);
   } 
   else
   {
-    Serial.print("No data");
+  //  Serial.print("No data");
   }
   // Check if reading was successful
- Serial.print(" , ");
+// Serial.print(" , ");
  for(int i=1;i<=12;i++)
  {
  T[i-1]=temprature(analogRead(i));//A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11,A12,A13,A14 a11 problem
